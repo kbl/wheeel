@@ -7,7 +7,6 @@
 	<Chronometer android:id="@+id/counterTime" 
             android:layout_height="wrap_content"
 			android:layout_width="match_parent" 
-			android:format="HH:MM:SS"
 			android:textAppearance="@android:style/TextAppearance.Large"
 			android:gravity="center"
 			android:text="@string/counterInitMsg" />
