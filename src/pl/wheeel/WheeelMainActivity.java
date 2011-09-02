@@ -13,6 +13,9 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 	private Button mResetButton;
 	private Button mStartButton;
 
+	private static final int FIRST_HOURLY_PRICE = 2;
+	private static final int HOURLY_PRICE = 4;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,7 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 		mStartButton = (Button) findViewById(R.id.counterStartButton);
         mStartButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				mCounter.setBase(System.currentTimeMillis());
 		        mCounter.start();
 		        mStartButton.setEnabled(false);
 			}
