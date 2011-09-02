@@ -1,8 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="match_parent"
-	    android:layout_height="match_parent">
-	<TextView android:layout_width="match_parent" 
-		    android:layout_height="wrap_content" 
-		    android:text="@string/hello"/>
+		android:layout_height="match_parent"
+		android:layout_width="match_parent" 
+		android:orientation="vertical">
+		
+	<Chronometer android:id="@+id/counterTime" 
+            android:layout_height="wrap_content"
+			android:layout_width="match_parent" 
+			android:format="HH:MM:SS"
+			android:textSize="@android:style/TextAppearance.Large"
+			android:gravity="center"
+			android:text="@string/counterInitMsg" />
+	<TextView
+            android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+            android:textSize="@android:style/TextAppearance.Small"
+            android:gravity="center"
+			android:text="@string/counterPredictedPriceMsg" />
+    <TextView android:id="@+id/counterPrice"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textSize="@android:style/TextAppearance.Large"
+            android:gravity="center"
+            android:text="@string/counterPredictedPriceMsg" />
+    <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+        <Button android:id="@+id/counterStartButton" 
+                android:text="@string/counterStartButton"
+                android:layout_weight="1" />
+        <Button android:id="@+id/counterResetButton" 
+                android:text="@string/counterResetButton"
+                android:layout_weight="1" />
+    </LinearLayout>
+
 </LinearLayout>

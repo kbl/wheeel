@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, WheeelActivity!</string>
     <string name="app_name">Wheeel</string>
+    
+    <string name="maps_api_key_debug">0Pt4ROTNamqkKExomkHpLbxkgq2Y6ewdxU1pmB</string>
+    <string name="maps_api_key">0Pt4ROTNamqnGzX30W5c1Leu67My3fFtmRn04ww</string>
+    
+    <string name="counterInitMsg">Cycle!</string>
+    <string name="counterPredictedPriceMsg">Predicted price</string>
+    <string name="counterResetButton">Reset</string>
+    <string name="counterStartButton">Start</string>
+    
 </resources>
