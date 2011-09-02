@@ -6,7 +6,10 @@
     <string name="maps_api_key">0Pt4ROTNamqnGzX30W5c1Leu67My3fFtmRn04ww</string>
     
     <string name="counterInitMsg">Cycle!</string>
+
     <string name="counterPredictedPriceMsg">Predicted price</string>
+    <string name="counterPriceInitMsg">0 zł</string>
+ 
     <string name="counterResetButton">Reset</string>
     <string name="counterStartButton">Start</string>
     

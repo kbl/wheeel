@@ -8,30 +8,34 @@
             android:layout_height="wrap_content"
 			android:layout_width="match_parent" 
 			android:format="HH:MM:SS"
-			android:textSize="@android:style/TextAppearance.Large"
+			android:textAppearance="@android:style/TextAppearance.Large"
 			android:gravity="center"
 			android:text="@string/counterInitMsg" />
 	<TextView
             android:layout_height="wrap_content"
-			android:layout_width="wrap_content"
-            android:textSize="@android:style/TextAppearance.Small"
-            android:gravity="center"
-			android:text="@string/counterPredictedPriceMsg" />
+			android:layout_width="match_parent"
+			android:textAppearance="@android:style/TextAppearance.Small"
+			android:text="@string/counterPredictedPriceMsg" 
+            android:gravity="center" />
     <TextView android:id="@+id/counterPrice"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:textSize="@android:style/TextAppearance.Large"
+            android:layout_width="match_parent"
+            android:textAppearance="@android:style/TextAppearance.Large"
             android:gravity="center"
-            android:text="@string/counterPredictedPriceMsg" />
+            android:text="@string/counterPriceInitMsg" />
     <LinearLayout
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:gravity="center"
             android:orientation="horizontal">
-        <Button android:id="@+id/counterStartButton" 
+        <Button android:id="@+id/counterStartButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
                 android:text="@string/counterStartButton"
                 android:layout_weight="1" />
-        <Button android:id="@+id/counterResetButton" 
+        <Button android:id="@+id/counterResetButton"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content" 
                 android:text="@string/counterResetButton"
                 android:layout_weight="1" />
     </LinearLayout>
