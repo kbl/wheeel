@@ -9,6 +9,10 @@ import android.widget.Chronometer;
 import android.widget.Chronometer.OnChronometerTickListener;
 import android.widget.TextView;
 
+/**
+ * @author kbl
+ *
+ */
 public class WheeelMainActivity extends Activity implements OnChronometerTickListener {
 
 	private Chronometer mCounter;
@@ -39,6 +43,7 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 	private void initButtons() {
 		mStartButton = (Button) findViewById(R.id.counterStartButton);
 		mStartButton.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				mCounter.setBase(SystemClock.elapsedRealtime());
 				mCounter.start();
@@ -48,6 +53,7 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 
 		Button mResetButton = (Button) findViewById(R.id.counterResetButton);
 		mResetButton.setOnClickListener(new View.OnClickListener() {
+			@Override
 			public void onClick(View v) {
 				mCounter.stop();
 				mStartButton.setEnabled(true);
@@ -56,6 +62,7 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 		});
 	}
 
+	@Override
 	public void onChronometerTick(Chronometer chronometer) {
 		long time = SystemClock.elapsedRealtime() - chronometer.getBase();
 		if(time > TWENTY_MINUTES) {
