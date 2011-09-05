@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class WheeelMainActivity extends Activity implements OnChronometerTickListener {
 
-    private Chronometer mCounter;
+	private Chronometer mCounter;
 	private Button mStartButton;
 	private TextView mPrice;
 
@@ -23,8 +23,8 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
 
         initCounter();
         initButtons();
@@ -38,20 +38,20 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 
 	private void initButtons() {
 		mStartButton = (Button) findViewById(R.id.counterStartButton);
-        mStartButton.setOnClickListener(new View.OnClickListener() {
+		mStartButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				mCounter.setBase(SystemClock.elapsedRealtime());
-		        mCounter.start();
-		        mStartButton.setEnabled(false);
+				mCounter.start();
+				mStartButton.setEnabled(false);
 			}
 		});
 
-        Button mResetButton = (Button) findViewById(R.id.counterResetButton);
-        mResetButton.setOnClickListener(new View.OnClickListener() {
+		Button mResetButton = (Button) findViewById(R.id.counterResetButton);
+		mResetButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-		        mCounter.stop();
-		        mStartButton.setEnabled(true);
-		        mPrice.setText(R.string.counterPriceInitMsg);
+				mCounter.stop();
+				mStartButton.setEnabled(true);
+				mPrice.setText(R.string.counterPriceInitMsg);
 			}
 		});
 	}
