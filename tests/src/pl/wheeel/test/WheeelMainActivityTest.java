@@ -32,7 +32,7 @@ public class WheeelMainActivityTest extends ActivityInstrumentationTestCase2<Whe
 		startButton = (Button) activity.findViewById(R.id.counterStartButton);
 		resetButton = (Button) activity.findViewById(R.id.counterResetButton);
 		priceTextView = (TextView) activity.findViewById(R.id.counterPrice);
-		priceInitMsg = activity.getString(R.string.counterInitMsg);
+		priceInitMsg = activity.getString(R.string.counterPriceInitMsg);
 	}
 
 	public void testPreConfiguration() {
