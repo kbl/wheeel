@@ -1,7 +1,7 @@
 /**
  * Sep 5, 2011
  */
-package pl.wheeel.test;
+package pl.wheeel;
 
 import pl.wheeel.R;
 import pl.wheeel.WheeelMainActivity;
