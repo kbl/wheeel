@@ -3,12 +3,15 @@
  */
 package pl.wheeel.location;
 
+import java.util.List;
+
 import pl.wheeel.R;
 import android.os.Bundle;
 
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
+import com.google.android.maps.Overlay;
 
 /**
  * @author kbl
@@ -36,7 +39,9 @@ public class WheeelMapActivity extends MapActivity {
 	private void initMyLocation() {
 		locationOverlay = new MyLocationOverlay(this, mapView);
 		locationOverlay.enableMyLocation();
-		mapView.getOverlays().add(locationOverlay);
+		List<Overlay> overlays = mapView.getOverlays();
+		overlays.add(locationOverlay);
+		overlays.add(new DockStationsOverlay(getResources().getDrawable(R.drawable.icon)));
 	}
 
 	@Override
