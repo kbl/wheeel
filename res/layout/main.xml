@@ -1,42 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="match_parent"
-		android:layout_width="match_parent" 
-		android:orientation="vertical">
-		
-	<Chronometer android:id="@+id/counterTime" 
-            android:layout_height="wrap_content"
-			android:layout_width="match_parent" 
-			android:textAppearance="@android:style/TextAppearance.Large"
-			android:gravity="center"
-			android:text="@string/counterInitMsg" />
-	<TextView
-            android:layout_height="wrap_content"
+		android:layout_width="match_parent">
+	
+	<LinearLayout  
+			android:layout_height="match_parent"
 			android:layout_width="match_parent"
-			android:textAppearance="@android:style/TextAppearance.Small"
-			android:text="@string/counterPredictedPriceMsg" 
-            android:gravity="center" />
-    <TextView android:id="@+id/counterPrice"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textAppearance="@android:style/TextAppearance.Large"
-            android:gravity="center"
-            android:text="@string/counterPriceInitMsg" />
+			android:layout_gravity="center"
+			android:orientation="vertical">
+		<Chronometer android:id="@+id/counterTime" 
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent" 
+				android:textAppearance="@android:style/TextAppearance.Large"
+				android:gravity="center"
+				android:text="@string/counterInitMsg" />
+		<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:textAppearance="@android:style/TextAppearance.Small"
+				android:text="@string/counterPredictedPriceMsg" 
+				android:gravity="center" />
+		<TextView android:id="@+id/counterPrice"
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+	            android:textAppearance="@android:style/TextAppearance.Large"
+	            android:gravity="center"
+				android:text="@string/counterPriceInitMsg" />
+	</LinearLayout>
     <LinearLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
             android:gravity="center"
             android:orientation="horizontal">
         <Button android:id="@+id/counterStartButton"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="@string/counterStartButton"
+                android:background="@drawable/accept_button"
                 android:layout_weight="1" />
         <Button android:id="@+id/counterResetButton"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content" 
                 android:text="@string/counterResetButton"
-                android:layout_weight="1" />
+                android:layout_weight="1" 
+                android:background="@drawable/decline_button"/>
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
