@@ -42,14 +42,14 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-        initCounter();
-        initButtons();
-        mPriceTextView = (TextView) findViewById(R.id.counterPrice);
-    }
+		initCounter();
+		initButtons();
+		mPriceTextView = (TextView) findViewById(R.id.counterPrice);
+	}
 
 	private void initCounter() {
 		mCounter = (Chronometer) findViewById(R.id.counterTime);
-        mCounter.setOnChronometerTickListener(this);
+		mCounter.setOnChronometerTickListener(this);
 	}
 
 	private void initButtons() {
@@ -61,6 +61,7 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 				mCounter.setBase(mStartTime);
 				mCounter.start();
 				mStartButton.setEnabled(false);
+				mStartButton.setFocusable(false);
 			}
 		});
 
@@ -69,8 +70,10 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 			@Override
 			public void onClick(View v) {
 				mStartTime = COUNTER_STOPPED;
+				mPrice = COUNTER_STOPPED;
 				mCounter.stop();
 				mStartButton.setEnabled(true);
+				mStartButton.setFocusable(true);
 				mPriceTextView.setText(R.string.counterPriceInitMsg);
 			}
 		});
