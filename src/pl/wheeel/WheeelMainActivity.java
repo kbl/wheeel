@@ -20,11 +20,13 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 	private static final int FIRST_HOURLY_PRICE = 2;
 	private static final int HOURLY_PRICE = 4;
 
-	private static final long TWENTY_MINUTES = 10 * 1000;
+	private static final long TWENTY_MINUTES = 20 * 60 * 1000;
 	private static final long ONE_HOUR = 3 * TWENTY_MINUTES;
 
 	private static final String CYCLING_PRICE = "cyclingPrice";
 	private static final String CYCLING_START = "cyclingStart";
+
+	private static final int SPECIAL_PRICE_HOUR = 1;
 
 	private Chronometer mCounter;
 	private Button mStartButton;
@@ -88,16 +90,24 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 
 	@Override
 	public void onChronometerTick(Chronometer chronometer) {
-		long time = SystemClock.elapsedRealtime() - chronometer.getBase();
+		long elapsedTime = SystemClock.elapsedRealtime() - chronometer.getBase();
+		countPrice(elapsedTime);
+		mPriceTextView.setText(mPrice + " zl");
 
-		if(time > TWENTY_MINUTES) {
-			if(time > ONE_HOUR) {
-				time = (time % ONE_HOUR) - 1;
-				mPriceTextView.setText((FIRST_HOURLY_PRICE + time * HOURLY_PRICE) + " zl");
+	}
+
+	protected void countPrice(long elapsedTime) {
+		if(elapsedTime > TWENTY_MINUTES) {
+			int fullHours = (int) (elapsedTime / ONE_HOUR);
+			int startedHour = elapsedTime % ONE_HOUR != 0 ? 1 : 0;
+			int hoursWithoutDiscount = fullHours + startedHour - SPECIAL_PRICE_HOUR;
+			mPrice = FIRST_HOURLY_PRICE;
+			if(hoursWithoutDiscount > 0 ) {
+				mPrice += HOURLY_PRICE * hoursWithoutDiscount;
 			}
-			else {
-				mPriceTextView.setText(FIRST_HOURLY_PRICE + " zl");
-			}
+		}
+		else {
+			mPrice = 0;
 		}
 	}
 

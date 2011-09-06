@@ -3,8 +3,6 @@
  */
 package pl.wheeel;
 
-import pl.wheeel.R;
-import pl.wheeel.WheeelMainActivity;
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.Button;
 import android.widget.TextView;
