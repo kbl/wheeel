@@ -1,6 +1,8 @@
 package pl.wheeel;
 
+import pl.wheeel.location.WheeelMapActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.View;
@@ -62,14 +64,23 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 			}
 		});
 
-		Button mResetButton = (Button) findViewById(R.id.counterResetButton);
-		mResetButton.setOnClickListener(new View.OnClickListener() {
+		Button resetButton = (Button) findViewById(R.id.counterResetButton);
+		resetButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				mStartTime = COUNTER_STOPPED;
 				mCounter.stop();
 				mStartButton.setEnabled(true);
 				mPriceTextView.setText(R.string.counterPriceInitMsg);
+			}
+		});
+
+		Button showLocationButton = (Button) findViewById(R.id.showLocationButton);
+		showLocationButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(v.getContext(), WheeelMapActivity.class);
+				startActivity(intent);
 			}
 		});
 	}
