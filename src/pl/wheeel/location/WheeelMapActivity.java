@@ -7,6 +7,7 @@ import pl.wheeel.R;
 import android.os.Bundle;
 
 import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapView;
 
 /**
  * @author kbl
@@ -14,10 +15,15 @@ import com.google.android.maps.MapActivity;
  */
 public class WheeelMapActivity extends MapActivity {
 
+	private MapView mMapView;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.map);
+
+		mMapView = (MapView) findViewById(R.id.mapView);
+		mMapView.displayZoomControls(true);
 	}
 
 	@Override

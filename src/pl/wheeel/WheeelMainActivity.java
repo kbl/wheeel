@@ -129,5 +129,11 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 	protected void setmPrice(int mPrice) {
 		this.mPrice = mPrice;
 	}
+	protected long getmStartTime() {
+		return mStartTime;
+	}
+	protected void setmStartTime(long mStartTime) {
+		this.mStartTime = mStartTime;
+	}
 
 }

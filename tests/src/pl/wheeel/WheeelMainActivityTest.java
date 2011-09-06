@@ -4,7 +4,6 @@
 package pl.wheeel;
 
 import android.test.ActivityInstrumentationTestCase2;
-import android.widget.Button;
 import android.widget.TextView;
 
 /**
@@ -14,8 +13,6 @@ import android.widget.TextView;
 public class WheeelMainActivityTest extends ActivityInstrumentationTestCase2<WheeelMainActivity> {
 
 	private WheeelMainActivity activity;
-	private Button resetButton;
-	private Button startButton;
 	private TextView priceTextView;
 	private String priceInitMsg;
 
@@ -27,14 +24,29 @@ public class WheeelMainActivityTest extends ActivityInstrumentationTestCase2<Whe
 	protected void setUp() throws Exception {
 		super.setUp();
 		activity = getActivity();
-		startButton = (Button) activity.findViewById(R.id.counterStartButton);
-		resetButton = (Button) activity.findViewById(R.id.counterResetButton);
 		priceTextView = (TextView) activity.findViewById(R.id.counterPrice);
 		priceInitMsg = activity.getString(R.string.counterPriceInitMsg);
 	}
 
 	public void testPreConfiguration() {
 		assertEquals(priceTextView.getText(), priceInitMsg);
+	}
+
+	public void testIfStateIsSavedOnDestroyingActivity() {
+		activity.setmPrice(123);
+		activity.finish();
+
+		activity = getActivity();
+		assertEquals(activity.getmPrice(), 123);
+	}
+
+	public void testIfPriceAndStartTimeAreReseted() {
+		activity.setmPrice(123);
+		activity.setmStartTime(123L);
+
+
+
+
 	}
 
 }
