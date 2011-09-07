@@ -23,7 +23,7 @@ public class DockStationDao {
 
 	public DockStationDao open() {
 		if(db == null) {
-			db = dbHelper.getWritableDatabase();
+			db = dbHelper.getReadableDatabase();
 		}
 		return this;
 	}
