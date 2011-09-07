@@ -2,7 +2,7 @@
 <resources>
 	<string name="app_name">Wheeel</string>
 	
-	<string name="maps_api_key_debug">0Pt4ROTNamqkKExomkHpLbxkgq2Y6ewdxU1pmB</string>
+	<string name="maps_api_key_debug">0Pt4ROTNamqkKExomkHpLbxkgq2Y6ewdxU1pmBw</string>
 	<string name="maps_api_key">0Pt4ROTNamqnGzX30W5c1Leu67My3fFtmRn04ww</string>
 	
 	<string name="counterInitMsg">Cycle!</string>

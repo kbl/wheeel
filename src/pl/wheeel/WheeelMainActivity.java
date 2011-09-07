@@ -107,7 +107,6 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 		long elapsedTime = SystemClock.elapsedRealtime() - chronometer.getBase();
 		countPrice(elapsedTime);
 		mPriceTextView.setText(mPrice + " zl");
-
 	}
 
 	protected void countPrice(long elapsedTime) {
