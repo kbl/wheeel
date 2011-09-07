@@ -6,6 +6,7 @@ package pl.wheeel.location;
 import java.util.List;
 
 import pl.wheeel.R;
+import pl.wheeel.location.overlay.DockingStationsOverlay;
 import android.os.Bundle;
 
 import com.google.android.maps.MapActivity;
@@ -41,7 +42,7 @@ public class WheeelMapActivity extends MapActivity {
 		locationOverlay.enableMyLocation();
 		List<Overlay> overlays = mapView.getOverlays();
 		overlays.add(locationOverlay);
-		overlays.add(new DockingStationsOverlay(getResources().getDrawable(R.drawable.icon)));
+		overlays.add(new DockingStationsOverlay(this, getResources().getDrawable(R.drawable.icon)));
 	}
 
 	@Override
