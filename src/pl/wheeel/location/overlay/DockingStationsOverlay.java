@@ -30,6 +30,7 @@ public class DockingStationsOverlay extends ItemizedOverlay<DockingStation> {
 		dao.close();
 		dockingStationTitles =
 				context.getResources().getStringArray(R.array.dockingStationTitle);
+		populate();
 	}
 
 	@Override
