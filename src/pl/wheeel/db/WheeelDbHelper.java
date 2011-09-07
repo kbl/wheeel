@@ -52,9 +52,4 @@ public class WheeelDbHelper extends SQLiteOpenHelper {
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) { }
 
-	@Override
-	public synchronized SQLiteDatabase getWritableDatabase() {
-		throw new UnsupportedOperationException();
-	}
-
 }

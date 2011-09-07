@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Wheeel</string>
-    
-    <string name="maps_api_key_debug">0Pt4ROTNamqkKExomkHpLbxkgq2Y6ewdxU1pmB</string>
-    <string name="maps_api_key">0Pt4ROTNamqnGzX30W5c1Leu67My3fFtmRn04ww</string>
-    
-    <string name="counterInitMsg">Cycle!</string>
+	<string name="app_name">Wheeel</string>
+	
+	<string name="maps_api_key_debug">0Pt4ROTNamqkKExomkHpLbxkgq2Y6ewdxU1pmB</string>
+	<string name="maps_api_key">0Pt4ROTNamqnGzX30W5c1Leu67My3fFtmRn04ww</string>
+	
+	<string name="counterInitMsg">Cycle!</string>
+	
+	<string name="counterPredictedPriceMsg">Predicted price</string>
+	<string name="counterPriceInitMsg">0 zł</string>
+	
+	<string name="counterResetButton">Reset</string>
+	<string name="counterStartButton">Start</string>
+	<string name="showLocationButton">Show current location</string>
 
-    <string name="counterPredictedPriceMsg">Predicted price</string>
-    <string name="counterPriceInitMsg">0 zł</string>
- 
-    <string name="counterResetButton">Reset</string>
-    <string name="counterStartButton">Start</string>
-    <string name="showLocationButton">Show current location</string>
+	<string-array name="dockingStationTitle">
+		<item>Rynek / Wita Stwosza</item> <!-- 1 -->
+		<item>Przejście Świdnickie</item>
+		<item>Galeria Dominikańska</item>
+		<item>Plac Nowy Targ</item>
+		<item>Plac Uniwersytecki</item>
+		<item>Plac Grunwaldzki / Polaka</item>
+		<item>Plac Grunwaldzki / D.S. "Kredka" i "Ołówek"</item>
+		<item>Hala Targowa</item>
+		<item>Plac Orląt Lwowskich</item>
+		<item>Plac Jana Pawła II</item> <!-- 10 -->
+		<item>Rynek / Plac Solny</item>
+		<item>Piłsudskiego / Powstańców Śląskich</item>
+		<item>Dworzec Główny PKP / Peronowa</item>
+		<item>Wyspiańskiego / Bud. A1 Politechniki Wrocławskiej</item>
+		<item>Łukasiewicza / Bud. B6 Politechniki Wrocławskiej</item>
+		<item>Plac Grunwaldzki / D.S. "Dwudziestolatka"</item>
+		<item>Wittiga / D.S. Politechniki Wrocławskiej</item>
+	</string-array>
+
 </resources>

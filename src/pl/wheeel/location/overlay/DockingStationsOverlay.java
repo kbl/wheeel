@@ -3,9 +3,9 @@
  */
 package pl.wheeel.location.overlay;
 
+import pl.wheeel.R;
 import pl.wheeel.location.DockingStationDao;
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 
@@ -18,18 +18,18 @@ import com.google.android.maps.ItemizedOverlay;
  */
 public class DockingStationsOverlay extends ItemizedOverlay<DockingStation> {
 
-	private DockingStationDao dao;
+	private static final int ZERO_BASED = 1;
+
 	private Cursor allDockingStations;
-	private Context context;
-	private Resources resources;
+	private String[] dockingStationTitles;
 
 	public DockingStationsOverlay(Context context, Drawable defaultMarker) {
 		super(defaultMarker);
 		DockingStationDao dao = new DockingStationDao(context);
 		allDockingStations = dao.open().getAllDockingStations();
 		dao.close();
-		resources = context.getResources();
-		this.context = context;
+		dockingStationTitles =
+				context.getResources().getStringArray(R.array.dockingStationTitle);
 	}
 
 	@Override
@@ -37,9 +37,10 @@ public class DockingStationsOverlay extends ItemizedOverlay<DockingStation> {
 		allDockingStations.moveToPosition(i);
 		int lat = allDockingStations.getInt(DockingStationDao.LAT_INDEX);
 		int lon = allDockingStations.getInt(DockingStationDao.LON_INDEX);
+		int id = allDockingStations.getInt(DockingStationDao.ID_INDEX);
 
-		String title = null;
-		String snippet = null;
+		String title = dockingStationTitles[id - ZERO_BASED];
+		String snippet = title;
 
 		return new DockingStation(new GeoPoint(lat, lon), title, snippet);
 	}
