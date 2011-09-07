@@ -12,16 +12,16 @@ import android.database.sqlite.SQLiteDatabase;
  * @author kbl
  *
  */
-public class DockStationDao {
+public class DockingStationDao {
 
 	private WheeelDbHelper dbHelper;
 	private SQLiteDatabase db;
 
-	public DockStationDao(Context context) {
+	public DockingStationDao(Context context) {
 		dbHelper = new WheeelDbHelper(context);
 	}
 
-	public DockStationDao open() {
+	public DockingStationDao open() {
 		if(db == null) {
 			db = dbHelper.getReadableDatabase();
 		}

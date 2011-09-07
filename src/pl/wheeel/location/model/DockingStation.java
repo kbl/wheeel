@@ -10,9 +10,9 @@ import com.google.android.maps.OverlayItem;
  * @author kbl
  *
  */
-public class DockStation extends OverlayItem {
+public class DockingStation extends OverlayItem {
 
-	public DockStation(GeoPoint point, String title, String snippet) {
+	public DockingStation(GeoPoint point, String title, String snippet) {
 		super(point, title, snippet);
 	}
 

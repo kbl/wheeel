@@ -41,7 +41,7 @@ public class WheeelMapActivity extends MapActivity {
 		locationOverlay.enableMyLocation();
 		List<Overlay> overlays = mapView.getOverlays();
 		overlays.add(locationOverlay);
-		overlays.add(new DockStationsOverlay(getResources().getDrawable(R.drawable.icon)));
+		overlays.add(new DockingStationsOverlay(getResources().getDrawable(R.drawable.icon)));
 	}
 
 	@Override
