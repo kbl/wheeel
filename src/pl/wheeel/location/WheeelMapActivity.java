@@ -6,7 +6,6 @@ package pl.wheeel.location;
 import java.util.List;
 
 import pl.wheeel.R;
-import pl.wheeel.location.overlay.DockingStationsOverlay;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
