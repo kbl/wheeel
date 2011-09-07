@@ -1,7 +1,7 @@
 /**
  * Sep 6, 2011
  */
-package pl.wheeel.location;
+package pl.wheeel.location.model;
 
 import pl.wheeel.db.WheeelDbHelper;
 import android.content.Context;
@@ -12,16 +12,16 @@ import android.database.sqlite.SQLiteDatabase;
  * @author kbl
  *
  */
-public class DockStationDbAdapter {
+public class DockStationDao {
 
 	private WheeelDbHelper dbHelper;
 	private SQLiteDatabase db;
 
-	public DockStationDbAdapter(Context context) {
+	public DockStationDao(Context context) {
 		dbHelper = new WheeelDbHelper(context);
 	}
 
-	public DockStationDbAdapter open() {
+	public DockStationDao open() {
 		if(db == null) {
 			db = dbHelper.getWritableDatabase();
 		}

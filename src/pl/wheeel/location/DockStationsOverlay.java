@@ -3,6 +3,7 @@
  */
 package pl.wheeel.location;
 
+import pl.wheeel.location.model.DockStation;
 import android.graphics.drawable.Drawable;
 
 import com.google.android.maps.ItemizedOverlay;
