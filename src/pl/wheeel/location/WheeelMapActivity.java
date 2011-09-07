@@ -8,8 +8,10 @@ import java.util.List;
 import pl.wheeel.R;
 import pl.wheeel.location.overlay.DockingStationsOverlay;
 import android.os.Bundle;
+import android.view.KeyEvent;
 
 import com.google.android.maps.MapActivity;
+import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
 import com.google.android.maps.Overlay;
@@ -35,6 +37,20 @@ public class WheeelMapActivity extends MapActivity {
 	private void initMap() {
 		mapView = (MapView) findViewById(R.id.mapView);
 		mapView.displayZoomControls(true);
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		MapController mapController = mapView.getController();
+		switch(keyCode) {
+			case KeyEvent.KEYCODE_3:
+				mapController.zoomIn();
+				break;
+			case KeyEvent.KEYCODE_1:
+				mapController.zoomOut();
+				break;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 
 	private void initMyLocation() {
