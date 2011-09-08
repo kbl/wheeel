@@ -42,8 +42,12 @@ public class DockingStationsOverlay extends ItemizedOverlay<OverlayItem>
 		nearestMarker = nearestM;
 		defaultMarker = defaultM;
 
-		nearestMarker.setBounds(0, 0, nearestMarker.getIntrinsicWidth(), nearestMarker.getIntrinsicHeight());
-		defaultMarker.setBounds(0, 0, defaultMarker.getIntrinsicWidth(), defaultMarker.getIntrinsicHeight());
+		nearestMarker.setBounds(0, 0,
+				nearestMarker.getIntrinsicWidth(),
+				nearestMarker.getIntrinsicHeight());
+		defaultMarker.setBounds(0, 0,
+				defaultMarker.getIntrinsicWidth(),
+				defaultMarker.getIntrinsicHeight());
 	}
 
 	private void populateOverlayItems(Context context) {
