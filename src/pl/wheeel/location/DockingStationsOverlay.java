@@ -3,9 +3,6 @@
  */
 package pl.wheeel.location;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import pl.wheeel.R;
 import android.content.Context;
 import android.database.Cursor;
@@ -23,10 +20,12 @@ public class DockingStationsOverlay extends ItemizedOverlay<OverlayItem> {
 
 	private static final int ZERO_BASED = 1;
 
-	private List<OverlayItem> overlayItems = new ArrayList<OverlayItem>();
+	private OverlayItem[] overlayItems;
+	//private Drawable nearestMarker;
 
 	public DockingStationsOverlay(Context context, Drawable defaultMarker) {
 		super(boundCenterBottom(defaultMarker));
+		//this.nearestMarker = nearestMarker;
 		populateOverlayItems(context);
 	}
 
@@ -47,6 +46,8 @@ public class DockingStationsOverlay extends ItemizedOverlay<OverlayItem> {
 
 	private void retriveDataFromCursor(Cursor dockingStations,
 			String[] dockingStationTitles) {
+		overlayItems = new OverlayItem[dockingStations.getCount()];
+		int tableIndex = 0;
 		dockingStations.moveToFirst();
 		do {
 			int lat = dockingStations.getInt(DockingStationDao.LAT_INDEX);
@@ -56,19 +57,20 @@ public class DockingStationsOverlay extends ItemizedOverlay<OverlayItem> {
 			String title = dockingStationTitles[id - ZERO_BASED];
 			String snippet = title;
 
-			overlayItems.add(new OverlayItem(new GeoPoint(lat, lon), title, snippet));
+			overlayItems[tableIndex++] = new OverlayItem(new GeoPoint(lat, lon), title, snippet);
 			populate();
 		} while(dockingStations.moveToNext());
 	}
 
 	@Override
 	protected OverlayItem createItem(int i) {
-		return overlayItems.get(i);
+		OverlayItem item = overlayItems[i];
+		return item;
 	}
 
 	@Override
 	public int size() {
-		return overlayItems.size();
+		return overlayItems.length;
 	}
 
 }
