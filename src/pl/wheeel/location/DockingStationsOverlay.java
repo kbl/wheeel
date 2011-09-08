@@ -34,9 +34,16 @@ public class DockingStationsOverlay extends ItemizedOverlay<OverlayItem>
 
 	public DockingStationsOverlay(Context context, Drawable defaultMarker, Drawable nearestMarker) {
 		super(boundCenterBottom(defaultMarker));
-		this.nearestMarker = nearestMarker;
-		this.defaultMarker = defaultMarker;
+		prepareMarkers(defaultMarker, nearestMarker);
 		populateOverlayItems(context);
+	}
+
+	private void prepareMarkers(Drawable defaultM, Drawable nearestM) {
+		nearestMarker = nearestM;
+		defaultMarker = defaultM;
+
+		nearestMarker.setBounds(0, 0, nearestMarker.getIntrinsicWidth(), nearestMarker.getIntrinsicHeight());
+		defaultMarker.setBounds(0, 0, defaultMarker.getIntrinsicWidth(), defaultMarker.getIntrinsicHeight());
 	}
 
 	private void populateOverlayItems(Context context) {
@@ -58,16 +65,21 @@ public class DockingStationsOverlay extends ItemizedOverlay<OverlayItem>
 			String[] dockingStationTitles) {
 		dockingStations.moveToFirst();
 		do {
-			int lat = dockingStations.getInt(DockingStationDao.LAT_INDEX);
-			int lon = dockingStations.getInt(DockingStationDao.LON_INDEX);
-			int id = dockingStations.getInt(DockingStationDao.ID_INDEX);
-
-			String title = dockingStationTitles[id - ZERO_BASED];
-			String snippet = title;
-
-			overlayItems.add(new OverlayItem(new GeoPoint(lat, lon), title, snippet));
+			createOverlayItem(dockingStations, dockingStationTitles);
 			populate();
 		} while(dockingStations.moveToNext());
+	}
+
+	private void createOverlayItem(Cursor dockingStations,
+			String[] dockingStationTitles) {
+		int lat = dockingStations.getInt(DockingStationDao.LAT_INDEX);
+		int lon = dockingStations.getInt(DockingStationDao.LON_INDEX);
+		int id = dockingStations.getInt(DockingStationDao.ID_INDEX);
+
+		String title = dockingStationTitles[id - ZERO_BASED];
+		String snippet = title;
+
+		overlayItems.add(new OverlayItem(new GeoPoint(lat, lon), title, snippet));
 	}
 
 	@Override
