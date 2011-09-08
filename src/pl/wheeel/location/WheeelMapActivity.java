@@ -9,6 +9,7 @@ import pl.wheeel.R;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
+import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
@@ -20,6 +21,9 @@ import com.google.android.maps.Overlay;
  *
  */
 public class WheeelMapActivity extends MapActivity {
+
+	private static final int INITIAL_ZOOM_LEVEL = 15;
+	private static final GeoPoint MARKET_SQUARE_WROCLAW = new GeoPoint(51110096, 17032413);
 
 	private MapView mapView;
 	private MyLocationOverlay locationOverlay;
@@ -36,6 +40,9 @@ public class WheeelMapActivity extends MapActivity {
 	private void initMap() {
 		mapView = (MapView) findViewById(R.id.mapView);
 		mapView.displayZoomControls(true);
+		MapController controller = mapView.getController();
+		controller.setZoom(INITIAL_ZOOM_LEVEL);
+		controller.animateTo(MARKET_SQUARE_WROCLAW);
 	}
 
 	@Override
