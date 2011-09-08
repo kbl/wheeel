@@ -6,6 +6,8 @@ package pl.wheeel.location;
 import java.util.List;
 
 import pl.wheeel.R;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
 
@@ -63,11 +65,25 @@ public class WheeelMapActivity extends MapActivity {
 		locationOverlay = new MyLocationOverlay(this, mapView);
 		locationOverlay.enableMyLocation();
 		DockingStationsOverlay dockingStationsOverlay =
-				new DockingStationsOverlay(this, getResources().getDrawable(R.drawable.flag_blue));
+				new DockingStationsOverlay(
+						this,
+						getResources().getDrawable(R.drawable.flag_blue),
+						getResources().getDrawable(R.drawable.flag_green));
+		registerAsLocationListener(dockingStationsOverlay);
 
 		List<Overlay> overlays = mapView.getOverlays();
 		overlays.add(locationOverlay);
 		overlays.add(dockingStationsOverlay);
+	}
+
+	private void registerAsLocationListener(LocationListener listener) {
+		LocationManager locationManager =
+				(LocationManager) getSystemService(LOCATION_SERVICE);
+		locationManager.requestLocationUpdates(
+				LocationManager.GPS_PROVIDER,
+				0,
+				0,
+				listener);
 	}
 
 	@Override
