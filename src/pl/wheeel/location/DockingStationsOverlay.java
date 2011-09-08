@@ -26,9 +26,8 @@ public class DockingStationsOverlay extends ItemizedOverlay<OverlayItem> {
 	private List<OverlayItem> overlayItems = new ArrayList<OverlayItem>();
 
 	public DockingStationsOverlay(Context context, Drawable defaultMarker) {
-		super(defaultMarker);
+		super(boundCenterBottom(defaultMarker));
 		populateOverlayItems(context);
-		populate();
 	}
 
 	private void populateOverlayItems(Context context) {
@@ -58,6 +57,7 @@ public class DockingStationsOverlay extends ItemizedOverlay<OverlayItem> {
 			String snippet = title;
 
 			overlayItems.add(new OverlayItem(new GeoPoint(lat, lon), title, snippet));
+			populate();
 		} while(dockingStations.moveToNext());
 	}
 
