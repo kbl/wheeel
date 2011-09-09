@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-	<item android:title="@string/menuAbout" android:id="@+id/menuAbout" />
-	<item android:title="@string/menuSettings" android:id="@+id/menuSettings" />
+	<item android:id="@+id/menuSettings"
+			android:title="@string/menuSettings"
+			android:icon="@android:drawable/ic_menu_preferences" />
+	<item android:id="@+id/menuAbout"
+			android:title="@string/menuAbout"
+			android:icon="@android:drawable/ic_menu_info_details" />
 </menu>
