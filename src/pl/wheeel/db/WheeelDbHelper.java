@@ -16,7 +16,7 @@ public class WheeelDbHelper extends SQLiteOpenHelper {
 	private static final int VERSION = 1;
 	private static final String DB_NAME = "wheeel.db";
 	private static final String CREATE_DB_STMT = "CREATE TABLE docking_station (" +
-			"_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL UNIQUE," +
+			"_id INTEGER PRIMARY KEY NOT NULL UNIQUE," +
 			"lat INTEGER NOT NULL," +
 			"lon INTEGER NOT NULL);";
 
