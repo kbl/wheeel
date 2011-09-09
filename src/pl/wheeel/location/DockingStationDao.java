@@ -17,9 +17,11 @@ public class DockingStationDao {
 
 	private static final String TABLE = "docking_station";
 
-	public static final int ID_INDEX = 0;
-	public static final int LAT_INDEX = 1;
-	public static final int LON_INDEX = 2;
+	public static interface DockingStationColumns {
+		int ID_INDEX = 0;
+		int LAT_INDEX = 1;
+		int LON_INDEX = 2;
+	}
 
 	private WheeelDbHelper dbHelper;
 	private SQLiteDatabase db;

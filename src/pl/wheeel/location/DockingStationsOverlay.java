@@ -76,9 +76,9 @@ public class DockingStationsOverlay extends ItemizedOverlay<OverlayItem>
 
 	private void createOverlayItem(Cursor dockingStations,
 			String[] dockingStationTitles) {
-		int lat = dockingStations.getInt(DockingStationDao.LAT_INDEX);
-		int lon = dockingStations.getInt(DockingStationDao.LON_INDEX);
-		int id = dockingStations.getInt(DockingStationDao.ID_INDEX);
+		int lat = dockingStations.getInt(DockingStationDao.DockingStationColumns.LAT_INDEX);
+		int lon = dockingStations.getInt(DockingStationDao.DockingStationColumns.LON_INDEX);
+		int id = dockingStations.getInt(DockingStationDao.DockingStationColumns.ID_INDEX);
 
 		String title = dockingStationTitles[id - ZERO_BASED];
 		String snippet = title;
