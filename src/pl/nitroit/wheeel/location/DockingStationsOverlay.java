@@ -1,12 +1,12 @@
 /**
  * Sep 6, 2011
  */
-package pl.wheeel.location;
+package pl.nitroit.wheeel.location;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import pl.wheeel.R;
+import pl.nitroit.wheeel.R;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;

@@ -1,7 +1,7 @@
 /**
  * Sep 7, 2011
  */
-package pl.wheeel.db;
+package pl.nitroit.wheeel.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

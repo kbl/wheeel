@@ -1,11 +1,11 @@
 /**
  * Sep 6, 2011
  */
-package pl.wheeel.location;
+package pl.nitroit.wheeel.location;
 
 import java.util.List;
 
-import pl.wheeel.R;
+import pl.nitroit.wheeel.R;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;

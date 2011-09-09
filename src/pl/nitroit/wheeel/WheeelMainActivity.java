@@ -1,6 +1,6 @@
-package pl.wheeel;
+package pl.nitroit.wheeel;
 
-import pl.wheeel.location.WheeelMapActivity;
+import pl.nitroit.wheeel.location.WheeelMapActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

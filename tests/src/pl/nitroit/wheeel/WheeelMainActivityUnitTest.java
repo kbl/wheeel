@@ -1,8 +1,9 @@
 /**
  * Sep 6, 2011
  */
-package pl.wheeel;
+package pl.nitroit.wheeel;
 
+import pl.nitroit.wheeel.WheeelMainActivity;
 import junit.framework.TestCase;
 
 /**

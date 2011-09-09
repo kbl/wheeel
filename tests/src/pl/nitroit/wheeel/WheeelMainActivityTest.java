@@ -1,7 +1,7 @@
 /**
  * Sep 5, 2011
  */
-package pl.wheeel;
+package pl.nitroit.wheeel;
 
 import android.test.ActivityInstrumentationTestCase2;
 import android.widget.TextView;

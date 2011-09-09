@@ -1,9 +1,9 @@
 /**
  * Sep 6, 2011
  */
-package pl.wheeel.location;
+package pl.nitroit.wheeel.location;
 
-import pl.wheeel.db.WheeelDbHelper;
+import pl.nitroit.wheeel.db.WheeelDbHelper;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
