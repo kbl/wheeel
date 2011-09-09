@@ -10,6 +10,8 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -59,6 +61,13 @@ public class WheeelMapActivity extends MapActivity {
 				break;
 		}
 		return super.onKeyDown(keyCode, event);
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.bottom_menu, menu);
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	private void initMyLocation() {
