@@ -9,6 +9,7 @@ import java.util.List;
 import pl.nitroit.wheeel.R;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationListener;
@@ -16,6 +17,7 @@ import android.os.Bundle;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
+import com.google.android.maps.MapView;
 import com.google.android.maps.OverlayItem;
 
 /**
@@ -94,6 +96,11 @@ public class DockingStationsOverlay extends ItemizedOverlay<OverlayItem>
 	@Override
 	public int size() {
 		return overlayItems.size();
+	}
+
+	@Override
+	public void draw(Canvas canvas, MapView mapView, boolean shadow) {
+		super.draw(canvas, mapView, false);
 	}
 
 	@Override
