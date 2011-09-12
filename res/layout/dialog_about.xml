@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_height="match_parent"
-		android:layout_width="match_parent">
-	<ImageView android:id="@+id/aboutIcon"
+		android:layout_width="match_parent"
+		android:orientation="vertical">
+	<LinearLayout
 			android:layout_height="wrap_content"
-			android:layout_width="wrap_content" />
+			android:layout_width="match_parent"
+			android:orientation="horizontal"
+			android:padding="10sp">
+		<ImageView android:id="@+id/aboutIcon"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content" 
+				android:layout_weight="1" 
+				android:padding="10sp"/>
+		<TextView 
+				android:text="@string/aboutTitle"
+				android:textAppearance="@android:style/TextAppearance.Large"
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content" 
+				android:layout_weight="2"
+				android:padding="10sp" />
+	</LinearLayout>
 	<TextView 
-			android:text="@string/aboutTitle"
+			android:text="@string/aboutContent"
 			android:layout_height="wrap_content"
-			android:layout_width="wrap_content" />
+			android:layout_width="match_parent" 
+			android:padding="10sp" />
+	<TextView 
+			android:text="@string/aboutSuggestionsContent"
+			android:layout_height="wrap_content"
+			android:layout_width="match_parent" 
+			android:padding="10sp" />
 </LinearLayout>

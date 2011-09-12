@@ -40,5 +40,7 @@
 	<string name="menuSettings">Settings</string>
 	
 	<string name="aboutTitle">About</string>
+	<string name="aboutContent">Application created by Marcin Pietraszek.</string>
+	<string name="aboutSuggestionsContent">Please send feedback to marcin@pietraszek.pl</string>
 
 </resources>

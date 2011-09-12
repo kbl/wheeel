@@ -129,7 +129,7 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 
 	@Override
 	public boolean onMenuItemSelected(int featureId, MenuItem item) {
-		switch(featureId) {
+		switch(item.getItemId()) {
 			case R.id.menuAbout:
 				showDialog(DIALOG_ABOUT);
 				return true;
@@ -145,6 +145,7 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 			dialog.setContentView(R.layout.dialog_about);
 			ImageView icon = (ImageView) dialog.findViewById(R.id.aboutIcon);
 			icon.setImageResource(R.drawable.icon);
+			dialog.setCanceledOnTouchOutside(true);
 
 			return dialog;
 		}
