@@ -7,7 +7,6 @@ import java.util.List;
 
 import pl.nitroit.wheeel.R;
 import android.content.Context;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -28,11 +27,16 @@ import com.google.android.maps.Overlay;
  */
 public class WheeelMapActivity extends MapActivity {
 
+	private static final int MIN_DISTANCE_NOTIFICATION = 5;
+	private static final int MIN_TIME_NOTIFICATION = 3000;
+
 	private static final int INITIAL_ZOOM_LEVEL = 15;
 	private static final GeoPoint MARKET_SQUARE_WROCLAW = new GeoPoint(51110096, 17032413);
 
 	private MapView mapView;
 	private MyLocationOverlay locationOverlay;
+	private LocationManager locationManager;
+	private DockingStationsOverlay dockingStationsOverlay;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +47,25 @@ public class WheeelMapActivity extends MapActivity {
 		initMyLocation();
 	}
 
+	@Override
+	protected void onStart() {
+		locationManager.requestLocationUpdates(
+				LocationManager.GPS_PROVIDER,
+				MIN_TIME_NOTIFICATION,
+				MIN_DISTANCE_NOTIFICATION,
+				dockingStationsOverlay);
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		locationManager.removeUpdates(dockingStationsOverlay);
+	}
+
 	private void initMap() {
 		mapView = (MapView) findViewById(R.id.mapView);
 		mapView.displayZoomControls(true);
+		locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		MapController controller = mapView.getController();
 		controller.setZoom(INITIAL_ZOOM_LEVEL);
 		controller.animateTo(MARKET_SQUARE_WROCLAW);
@@ -55,33 +75,20 @@ public class WheeelMapActivity extends MapActivity {
 		displayToastIfGpsIsDisabled();
 		locationOverlay = new MyLocationOverlay(this, mapView);
 		locationOverlay.enableMyLocation();
-		DockingStationsOverlay dockingStationsOverlay =
+		dockingStationsOverlay =
 				new DockingStationsOverlay(
 						this,
 						getResources().getDrawable(R.drawable.flag_blue),
 						getResources().getDrawable(R.drawable.flag_green));
-		registerAsLocationListener(dockingStationsOverlay);
-
 		List<Overlay> overlays = mapView.getOverlays();
 		overlays.add(locationOverlay);
 		overlays.add(dockingStationsOverlay);
 	}
 
 	private void displayToastIfGpsIsDisabled() {
-		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-			Toast.makeText(this, R.string.gpsDisabledMsg, Toast.LENGTH_LONG);
+			Toast.makeText(this, R.string.gpsDisabledMsg, Toast.LENGTH_LONG).show();
 		}
-	}
-
-	private void registerAsLocationListener(LocationListener listener) {
-		LocationManager locationManager =
-				(LocationManager) getSystemService(LOCATION_SERVICE);
-		locationManager.requestLocationUpdates(
-				LocationManager.GPS_PROVIDER,
-				0,
-				0,
-				listener);
 	}
 
 	@Override
