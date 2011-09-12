@@ -10,8 +10,6 @@ import android.content.Context;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
@@ -49,6 +47,7 @@ public class WheeelMapActivity extends MapActivity {
 
 	@Override
 	protected void onStart() {
+		super.onStart();
 		locationManager.requestLocationUpdates(
 				LocationManager.GPS_PROVIDER,
 				MIN_TIME_NOTIFICATION,
@@ -103,13 +102,6 @@ public class WheeelMapActivity extends MapActivity {
 				break;
 		}
 		return super.onKeyDown(keyCode, event);
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.bottom_menu, menu);
-		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
