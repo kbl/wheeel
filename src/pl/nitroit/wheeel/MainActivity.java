@@ -142,6 +142,7 @@ public class MainActivity extends Activity implements OnChronometerTickListener 
 	protected Dialog onCreateDialog(int id, Bundle args) {
 		if(DIALOG_ABOUT == id) {
 			Dialog dialog = new Dialog(this);
+			dialog.setTitle(R.string.aboutTitle);
 			dialog.setContentView(R.layout.dialog_about);
 			ImageView icon = (ImageView) dialog.findViewById(R.id.aboutIcon);
 			icon.setImageResource(R.drawable.icon);
