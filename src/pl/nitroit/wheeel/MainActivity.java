@@ -100,9 +100,11 @@ public class MainActivity extends Activity implements OnChronometerTickListener 
 		super.onRestoreInstanceState(savedInstanceState);
 		mPrice = savedInstanceState.getInt(CYCLING_PRICE);
 		mStartTime = savedInstanceState.getLong(CYCLING_START);
-		if(mStartTime != 0L) {
+		if(mStartTime != COUNTER_STOPPED) {
 			mCounter.setBase(mStartTime);
 			mCounter.start();
+			mStartButton.setEnabled(false);
+			mStartButton.setFocusable(false);
 		}
 	}
 
