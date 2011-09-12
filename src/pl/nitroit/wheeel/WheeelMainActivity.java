@@ -151,6 +151,7 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 		}
 		return super.onCreateDialog(id, args);
 	}
+
 	protected void countPrice(long elapsedTime) {
 		if(elapsedTime > TWENTY_MINUTES) {
 			int fullHours = (int) (elapsedTime / ONE_HOUR);
