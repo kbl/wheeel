@@ -38,5 +38,7 @@
 	
 	<string name="menuAbout">About</string>
 	<string name="menuSettings">Settings</string>
+	
+	<string name="aboutTitle">About</string>
 
 </resources>

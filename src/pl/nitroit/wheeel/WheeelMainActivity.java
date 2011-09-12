@@ -2,15 +2,18 @@ package pl.nitroit.wheeel;
 
 import pl.nitroit.wheeel.location.WheeelMapActivity;
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.Chronometer.OnChronometerTickListener;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -31,6 +34,8 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 	private static final String CYCLING_START = "cyclingStart";
 
 	private static final int SPECIAL_PRICE_HOUR = 1;
+
+	private static final int DIALOG_ABOUT = 1;
 
 	private Chronometer mCounter;
 	private Button mStartButton;
@@ -122,6 +127,29 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 		return super.onCreateOptionsMenu(menu);
 	}
 
+	@Override
+	public boolean onMenuItemSelected(int featureId, MenuItem item) {
+		switch(featureId) {
+			case R.id.menuAbout:
+				showDialog(DIALOG_ABOUT);
+				return true;
+			default:
+				return super.onMenuItemSelected(featureId, item);
+		}
+	}
+
+	@Override
+	protected Dialog onCreateDialog(int id, Bundle args) {
+		if(DIALOG_ABOUT == id) {
+			Dialog dialog = new Dialog(this);
+			dialog.setContentView(R.layout.dialog_about);
+			ImageView icon = (ImageView) dialog.findViewById(R.id.aboutIcon);
+			icon.setImageResource(R.drawable.icon);
+
+			return dialog;
+		}
+		return super.onCreateDialog(id, args);
+	}
 	protected void countPrice(long elapsedTime) {
 		if(elapsedTime > TWENTY_MINUTES) {
 			int fullHours = (int) (elapsedTime / ONE_HOUR);
