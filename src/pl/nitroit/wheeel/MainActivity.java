@@ -119,7 +119,7 @@ public class MainActivity extends Activity implements OnChronometerTickListener 
 	public void onChronometerTick(Chronometer chronometer) {
 		long elapsedTime = SystemClock.elapsedRealtime() - chronometer.getBase();
 		countPrice(elapsedTime);
-		mPriceTextView.setText(mPrice + " zl");
+		mPriceTextView.setText(String.valueOf(mPrice));
 	}
 
 	@Override

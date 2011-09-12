@@ -5,10 +5,9 @@
 	<string name="mapsApiKeyDebug">0Pt4ROTNamqkKExomkHpLbxkgq2Y6ewdxU1pmBw</string>
 	<string name="mapsApiKey">0Pt4ROTNamqkU9bbLBP6RPeGv_ATgJpQtj5BMkA</string>
 	
-	<string name="counterInitMsg">Cycle!</string>
-	
 	<string name="counterPredictedPriceMsg">Predicted price</string>
-	<string name="counterPriceInitMsg">0 zł</string>
+	<string name="counterPriceInitMsg">0</string>
+	<string name="counterPriceCurrency">zł</string>
 	
 	<string name="counterResetButton">Reset</string>
 	<string name="counterStartButton">Start</string>
