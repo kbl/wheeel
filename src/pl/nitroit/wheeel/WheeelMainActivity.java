@@ -95,6 +95,10 @@ public class WheeelMainActivity extends Activity implements OnChronometerTickLis
 		super.onRestoreInstanceState(savedInstanceState);
 		mPrice = savedInstanceState.getInt(CYCLING_PRICE);
 		mStartTime = savedInstanceState.getLong(CYCLING_START);
+		if(mStartTime != 0L) {
+			mCounter.setBase(mStartTime);
+			mCounter.start();
+		}
 	}
 
 	@Override
