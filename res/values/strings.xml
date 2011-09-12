@@ -13,6 +13,8 @@
 	<string name="counterResetButton">Reset</string>
 	<string name="counterStartButton">Start</string>
 	<string name="showLocationButton">Show current location</string>
+	
+	<string name="gpsDisabledMsg">GPS module is disabled, exact location is unknown!</string>
 
 	<string-array name="dockingStationTitle">
 		<item>Rynek / Wita Stwosza</item> <!-- 1 -->

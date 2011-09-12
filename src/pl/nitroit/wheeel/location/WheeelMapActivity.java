@@ -6,12 +6,14 @@ package pl.nitroit.wheeel.location;
 import java.util.List;
 
 import pl.nitroit.wheeel.R;
+import android.content.Context;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapActivity;
@@ -49,6 +51,39 @@ public class WheeelMapActivity extends MapActivity {
 		controller.animateTo(MARKET_SQUARE_WROCLAW);
 	}
 
+	private void initMyLocation() {
+		displayToastIfGpsIsDisabled();
+		locationOverlay = new MyLocationOverlay(this, mapView);
+		locationOverlay.enableMyLocation();
+		DockingStationsOverlay dockingStationsOverlay =
+				new DockingStationsOverlay(
+						this,
+						getResources().getDrawable(R.drawable.flag_blue),
+						getResources().getDrawable(R.drawable.flag_green));
+		registerAsLocationListener(dockingStationsOverlay);
+
+		List<Overlay> overlays = mapView.getOverlays();
+		overlays.add(locationOverlay);
+		overlays.add(dockingStationsOverlay);
+	}
+
+	private void displayToastIfGpsIsDisabled() {
+		LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+		if(!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+			Toast.makeText(this, R.string.gpsDisabledMsg, Toast.LENGTH_LONG);
+		}
+	}
+
+	private void registerAsLocationListener(LocationListener listener) {
+		LocationManager locationManager =
+				(LocationManager) getSystemService(LOCATION_SERVICE);
+		locationManager.requestLocationUpdates(
+				LocationManager.GPS_PROVIDER,
+				0,
+				0,
+				listener);
+	}
+
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		MapController mapController = mapView.getController();
@@ -68,31 +103,6 @@ public class WheeelMapActivity extends MapActivity {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.bottom_menu, menu);
 		return super.onCreateOptionsMenu(menu);
-	}
-
-	private void initMyLocation() {
-		locationOverlay = new MyLocationOverlay(this, mapView);
-		locationOverlay.enableMyLocation();
-		DockingStationsOverlay dockingStationsOverlay =
-				new DockingStationsOverlay(
-						this,
-						getResources().getDrawable(R.drawable.flag_blue),
-						getResources().getDrawable(R.drawable.flag_green));
-		registerAsLocationListener(dockingStationsOverlay);
-
-		List<Overlay> overlays = mapView.getOverlays();
-		overlays.add(locationOverlay);
-		overlays.add(dockingStationsOverlay);
-	}
-
-	private void registerAsLocationListener(LocationListener listener) {
-		LocationManager locationManager =
-				(LocationManager) getSystemService(LOCATION_SERVICE);
-		locationManager.requestLocationUpdates(
-				LocationManager.GPS_PROVIDER,
-				0,
-				0,
-				listener);
 	}
 
 	@Override
