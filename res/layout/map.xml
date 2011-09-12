@@ -3,12 +3,11 @@
 		android:layout_width="match_parent" 
 		android:layout_height="match_parent">
 
-	<com.google.android.maps.MapView
-			android:id="@+id/mapView"
+	<com.google.android.maps.MapView android:id="@+id/mapView"
 			android:layout_width="match_parent" 
 			android:layout_height="match_parent"
 			android:enabled="true"
 			android:clickable="true"
-			android:apiKey="@string/maps_api_key_debug" />
+			android:apiKey="@string/mapsApiKeyDebug" />
 
 </LinearLayout>

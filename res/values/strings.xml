@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Wheeel</string>
+	<string name="appName">Wheeel</string>
 
-	<string name="maps_api_key_debug">0Pt4ROTNamqkKExomkHpLbxkgq2Y6ewdxU1pmBw</string>
-	<string name="maps_api_key">0Pt4ROTNamqkU9bbLBP6RPeGv_ATgJpQtj5BMkA</string>
+	<string name="mapsApiKeyDebug">0Pt4ROTNamqkKExomkHpLbxkgq2Y6ewdxU1pmBw</string>
+	<string name="mapsApiKey">0Pt4ROTNamqkU9bbLBP6RPeGv_ATgJpQtj5BMkA</string>
 	
 	<string name="counterInitMsg">Cycle!</string>
 	
