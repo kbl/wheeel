@@ -22,6 +22,7 @@ import android.widget.TextView;
  */
 public class MainActivity extends Activity implements OnChronometerTickListener {
 
+	private static final String COUNTER_RESET_VALUE = "00:00";
 	private static final int COUNTER_STOPPED = 0;
 
 	private static final int FIRST_HOURLY_PRICE = 2;
@@ -30,8 +31,8 @@ public class MainActivity extends Activity implements OnChronometerTickListener 
 	private static final long TWENTY_MINUTES = 20 * 60 * 1000;
 	private static final long ONE_HOUR = 3 * TWENTY_MINUTES;
 
-	private static final String CYCLING_PRICE = "cyclingPrice";
-	private static final String CYCLING_START = "cyclingStart";
+	private static final String STATE_CYCLING_PRICE = "Wheeel.cyclingPrice";
+	private static final String STATE_CYCLING_START = "Wheeel.cyclingStart";
 
 	private static final int SPECIAL_PRICE_HOUR = 1;
 
@@ -79,6 +80,7 @@ public class MainActivity extends Activity implements OnChronometerTickListener 
 				mStartTime = COUNTER_STOPPED;
 				mPrice = COUNTER_STOPPED;
 				mCounter.stop();
+				mCounter.setText(COUNTER_RESET_VALUE);
 				mStartButton.setEnabled(true);
 				mStartButton.setFocusable(true);
 				mPriceTextView.setText(R.string.counterPriceInitMsg);
@@ -98,8 +100,8 @@ public class MainActivity extends Activity implements OnChronometerTickListener 
 	@Override
 	protected void onRestoreInstanceState(Bundle savedInstanceState) {
 		super.onRestoreInstanceState(savedInstanceState);
-		mPrice = savedInstanceState.getInt(CYCLING_PRICE);
-		mStartTime = savedInstanceState.getLong(CYCLING_START);
+		mPrice = savedInstanceState.getInt(STATE_CYCLING_PRICE);
+		mStartTime = savedInstanceState.getLong(STATE_CYCLING_START);
 		if(mStartTime != COUNTER_STOPPED) {
 			mCounter.setBase(mStartTime);
 			mCounter.start();
@@ -111,8 +113,8 @@ public class MainActivity extends Activity implements OnChronometerTickListener 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState.putInt(CYCLING_PRICE, mPrice);
-		outState.putLong(CYCLING_START, mStartTime);
+		outState.putInt(STATE_CYCLING_PRICE, mPrice);
+		outState.putLong(STATE_CYCLING_START, mStartTime);
 	}
 
 	@Override
