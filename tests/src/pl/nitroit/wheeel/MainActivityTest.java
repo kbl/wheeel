@@ -12,15 +12,15 @@ import com.jayway.android.robotium.solo.Solo;
  * @author kbl
  *
  */
-public class WheeelMainActivityTest extends ActivityInstrumentationTestCase2<WheeelMainActivity> {
+public class MainActivityTest extends ActivityInstrumentationTestCase2<MainActivity> {
 
-	private WheeelMainActivity activity;
+	private MainActivity activity;
 	private TextView priceTextView;
 	private String priceInitMsg;
 	private Solo solo;
 
-	public WheeelMainActivityTest() {
-		super(WheeelMainActivity.class);
+	public MainActivityTest() {
+		super(MainActivity.class);
 	}
 
 	@Override

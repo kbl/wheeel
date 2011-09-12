@@ -20,7 +20,7 @@ import android.widget.TextView;
  * @author kbl
  *
  */
-public class WheeelMainActivity extends Activity implements OnChronometerTickListener {
+public class MainActivity extends Activity implements OnChronometerTickListener {
 
 	private static final int COUNTER_STOPPED = 0;
 

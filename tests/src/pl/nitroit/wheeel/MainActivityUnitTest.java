@@ -3,14 +3,14 @@
  */
 package pl.nitroit.wheeel;
 
-import pl.nitroit.wheeel.WheeelMainActivity;
+import pl.nitroit.wheeel.MainActivity;
 import junit.framework.TestCase;
 
 /**
  * @author kbl
  *
  */
-public class WheeelMainActivityUnitTest extends TestCase {
+public class MainActivityUnitTest extends TestCase {
 
 	private static final long ONE_MINUTE = 60 * 1000;
 	private static final long TWENTY_MINUTES = 20 * ONE_MINUTE;
@@ -21,7 +21,7 @@ public class WheeelMainActivityUnitTest extends TestCase {
 	private static final long TWO_HOURS = ONE_HOUR * 2;
 	private static final long TWO_HOURS_1_MINUTE = TWO_HOURS + ONE_MINUTE;
 
-	private WheeelMainActivity activity = new WheeelMainActivity();
+	private MainActivity activity = new MainActivity();
 
 	@Override
 	protected void setUp() throws Exception {
