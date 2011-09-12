@@ -2,7 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 	<item android:id="@+id/menuSettings"
 			android:title="@string/menuSettings"
-			android:icon="@android:drawable/ic_menu_preferences" />
+			android:icon="@android:drawable/ic_menu_preferences" 
+			android:enabled="false" />
 	<item android:id="@+id/menuAbout"
 			android:title="@string/menuAbout"
 			android:icon="@android:drawable/ic_menu_info_details" />
